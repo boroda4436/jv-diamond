@@ -6,3 +6,12 @@ script:
 cache:
   directories:
     - $HOME/.m2
+addons:
+  sonarcloud:
+    organization: "boroda4436"
+    token:
+      secure: "8bcb5efc5c43392ff82ca3ac4adb1e1a63aabb91" # encrypted value of your token
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
